@@ -1,3 +1,20 @@
+const isNumeric = (num) => {
+    if (typeof num === 'number') {
+        // Numbers are numeric, but explicitly check if they are not NaN.
+        return !isNaN(num);
+    }
+
+    if (typeof num === 'string') {
+        // Trim the input to handle cases with extra spaces.
+        const trimmedNum = num.trim();
+        
+        // Match numbers in decimal, negative, fractional, scientific, and hexadecimal formats.
+        const numericPattern = /^-?\d+(\.\d+)?$|^-?\d+e[+-]?\d+$|^0x[0-9a-fA-F]+$/;
+        return numericPattern.test(trimmedNum);
+    }
+
+    return false;
+};
 const testCases = [
     // Positive Cases
     { input: 0, expected: true },
