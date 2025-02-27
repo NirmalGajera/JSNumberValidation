@@ -1,5 +1,5 @@
 const isNumeric = (num) => {
-    if (typeof num === 'number') {
+    if (typeof num === 'number'|| typeof Number(num)) {
         // Numbers are numeric, but explicitly check if they are not NaN.
         return !isNaN(num);
     }
